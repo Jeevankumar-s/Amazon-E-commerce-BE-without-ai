@@ -1,5 +1,6 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
+const connectDB = require("./db");
 const PORT = 5000;
 
 const app = express()
@@ -8,6 +9,8 @@ app.use(express.json())
 app.get('/home', (req, res)=>{
     res.send("you are in home");
 })
+
+connectDB();
 
 app.post('/login', (req,res)=>{
     const {userName, password} = req.body
