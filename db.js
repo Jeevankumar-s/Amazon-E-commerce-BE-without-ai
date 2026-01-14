@@ -5,7 +5,7 @@ console.log(process.env.MONGO_URI)
 
 async function connectDB(){
     try{
-        await mongoose.connect("mongodb://127.0.0.1:27017/your-db-name");
+        await mongoose.connect(process.env.MONGO_URI);
         console.log("mongodb connected")
     }catch(e){
         console.log(`unable to connect mongodb ${e}`)
